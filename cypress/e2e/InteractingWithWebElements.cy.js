@@ -11,4 +11,15 @@ describe('Click UI Elements', () => {
         cy.get("input#male").check().should('be.checked')
         cy.get("input#female").should("not.be.checked")
     })
+
+    it('Clicking Checkbox Buttons', () => {
+        cy.visit("https://www.iteara-qa.azurewebsites.net/home/automation")
+        // Checking visibility of the UI Elements
+        cy.get("input#monday").should('be.visible')
+
+        // Selecting the checkbox button
+        cy.get("input#monday").check().should('be.checked')
+        // Unselecting the checkbox button
+        cy.get("input#monday").uncheck().should("not.be.checked")
+    })
 }) 
