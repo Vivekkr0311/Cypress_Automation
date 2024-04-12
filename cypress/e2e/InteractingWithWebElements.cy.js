@@ -21,5 +21,15 @@ describe('Click UI Elements', () => {
         cy.get("input#monday").check().should('be.checked')
         // Unselecting the checkbox button
         cy.get("input#monday").uncheck().should("not.be.checked")
+
+        // Selecting all checkboxes
+        cy.get("input.form-check-input[type='checkbox']").check().should('be.checked')
+        // Deselecting all checkboxes
+        cy.get("input.form-check-input[type='checkbox']").uncheck().should('not.be.checked')
+
+        // Selecting first and last checkbox
+        cy.get("input.form-check-input[type='checkbox']").first().check().should('be.checked')
+        cy.get("input.form-check-input[type='checkbox']").last().check().should('be.checked')
+        
     })
 }) 
