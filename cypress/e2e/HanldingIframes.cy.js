@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+import 'cypress-iframe'
 
 describe('Handling iframes', () => {
 
@@ -21,6 +22,19 @@ describe('Handling iframes', () => {
 
         // Below function "getIframe()" we have specified it in our command.js file
         cy.getIframe('#mce_0_ifr').clear().type('Welcome {cmd+a}')
+        cy.get("[aria-label='Bold']").click()
+    })
+
+    it('Apprach 3', () => {
+        // We are using cypress iframe plugin
+        // 1. $ npm install -D cypress-iframe
+        // 2. import 'cypress-iframe'
+
+        cy.visit('https://the-internet.herokuapp.com/iframe')
+
+        // Below function will load the frame.
+        cy.frameLoaded('#mce_0_ifr')
+        cy.iframe('#mce_0_ifr').clear().type('Welcome {cmd+a}')
         cy.get("[aria-label='Bold']").click()
     })
 })
