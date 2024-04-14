@@ -13,4 +13,14 @@ describe('Handling iframes', () => {
         iFrame.clear().type("Welcome {cmd+a}")
         cy.get("[aria-label='Bold']").click()
     })
+
+    it('Apprach 2', () => {
+        // We are going to use custome commands
+        // We will make our own command using command.js file
+        cy.visit('https://the-internet.herokuapp.com/iframe')
+
+        // Below function "getIframe()" we have specified it in our command.js file
+        cy.getIframe('#mce_0_ifr').clear().type('Welcome {cmd+a}')
+        cy.get("[aria-label='Bold']").click()
+    })
 })
