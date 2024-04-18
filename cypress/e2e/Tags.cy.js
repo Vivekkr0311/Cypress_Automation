@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 describe("Tags", () => {
-    it('skip tag', () => {
+    it.skip('skip tag', () => {
         cy.log("This test will be skipped")
     });
 
